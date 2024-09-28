@@ -71,7 +71,7 @@ elif [ ${type} = "U" ] || [ ${type} = "u" ]; then
 elif [ ${type} = "F" ] || [ ${type} = "f" ]; then
 	sudo nmap -sF -sV -O -A  -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt"
 elif [ ${type} = "X" ] || [ ${type} = "x" ]; then
-	 echo $(sudo nmap -sX -sV -O -A -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt"
+	 sudo nmap -sX -sV -O -A -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt"
 elif [ ${type} = "N" ] || [ ${type} = "n" ]; then
          sudo nmap -sN -sV -O -A -v ${ipaddr} > "SCANNMAP ${ipadddr} $(date).txt"
 elif [ ${type} = "W" ] || [ ${type} = "w" ]; then
