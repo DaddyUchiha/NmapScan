@@ -35,11 +35,11 @@ echo "Enter the scan type you want to do : TCP, UDP, FIN ,XMAS, NULL, WINDOW, MA
 
 read -p "[T], [U], [F], [X], [N], [W], [M]: " type
 
-echo "You selected ${type} ScanType"
+echo "You selected "${type}" ScanType"
 
-read -p "Do you want to Spoof your ipaddress [YES] [NO]" spoof
+read -p "Do you want to Spoof your ipaddress [YES] [NO] " spoof
 
-echo "Nmap scan on ${ipaddr}"
+echo "Nmap scan on "${ipaddr}""
 
 
 function yes {
@@ -47,37 +47,37 @@ echo -e "Please first see Scripts in \033[31m/usr/share/nmap/scripts {DIR}\033[0
 read -e -p "Script name : " scriptname
 	
 if [ ${type} = "T" ] || [ ${type} = "t" ]; then
-	echo $(sudo nmap -sT -sV -O -A --script=${scriptname} -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")
+	sudo nmap -sT -sV -O -A --script=${scriptname} -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt
 elif [ ${type} = "U" ] || [ ${type} = "u" ]; then
-	echo $(sudo nmap -sU -sV -O -A --script=${scriptname} -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")
+	sudo nmap -sU -sV -O -A --script=${scriptname} -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt
 elif [ ${type} = "F" ] || [ ${type} = "f" ]; then
-	echo $(sudo nmap -sF -sV -O -A --script=${scriptname} -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")
+	sudo nmap -sF -sV -O -A --script=${scriptname} -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt
 elif [ ${type} = "X" ] || [ ${type} = "x" ]; then
-	echo $(sudo nmap -sX -sV -O -A --script=${scriptname} -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")
+	sudo nmap -sX -sV -O -A --script=${scriptname} -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt
 elif [ ${type} = "N" ] || [ ${type} = "n" ]; then
-	echo $(sudo nmap -sN -sV -O -A --script=${scriptname} -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")
+	sudo nmap -sN -sV -O -A --script=${scriptname} -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt
 elif [ ${type} = "W" ] || [ ${type} = "w" ]; then
-	echo $(sudo nmap -sW -sV -O -A --script=${scriptname} -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")
+	sudo nmap -sW -sV -O -A --script=${scriptname} -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt
 elif [ ${type} = "M" ] || [ ${type} = "m" ]; then
-	echo $(sudo nmap -sM -sV -O -A --script=${scriptname} -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")
+	sudo nmap -sM -sV -O -A --script=${scriptname} -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt
 fi
 }
 function no {
 echo "Processding Without scripts"
 if [ ${type} = "T" ] || [ ${type} = "t" ]; then
-	echo $(sudo nmap -sT -sV -O -A -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")
+	sudo nmap -sT -sV -O -A -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt
 elif [ ${type} = "U" ] || [ ${type} = "u" ]; then
-	echo $(sudo nmap -sU -sV -O -A -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")
+	sudo nmap -sU -sV -O -A -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt
 elif [ ${type} = "F" ] || [ ${type} = "f" ]; then
-	echo $(sudo nmap -sF -sV -O -A  -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")
+	sudo nmap -sF -sV -O -A  -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt
 elif [ ${type} = "X" ] || [ ${type} = "x" ]; then
-	 echo $(sudo nmap -sX -sV -O -A -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")
+	 echo $(sudo nmap -sX -sV -O -A -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt
 elif [ ${type} = "N" ] || [ ${type} = "n" ]; then
-         echo $(sudo nmap -sN -sV -O -A -v ${ipaddr} > "SCANNMAP ${ipadddr} $(date).txt")
+         sudo nmap -sN -sV -O -A -v ${ipaddr} > "SCANNMAP ${ipadddr} $(date).txt
 elif [ ${type} = "W" ] || [ ${type} = "w" ]; then
-         echo $(sudo nmap -sW -sV -O -A -v ${ipaddr} > "SCANNMAP ${ipadddr} $(date).txt")
+         sudo nmap -sW -sV -O -A -v ${ipaddr} > "SCANNMAP ${ipadddr} $(date).txt
 elif [ ${type} = "M" ] || [ ${type} = "M" ]; then
-         echo $(sudo nmap -sM -sV -O -A -v ${ipaddr} > "SCANNMAP ${ipadddr} $(date).txt")           
+         sudo nmap -sM -sV -O -A -v ${ipaddr} > "SCANNMAP ${ipadddr} $(date).txt        
 fi
 }
 
@@ -90,19 +90,19 @@ read -p "Enter Spoof Ipaddress : " ipspoof
 read -p "Enter Network Interface name : " ifname
 	
 if [ ${type} = "T" ] || [ ${type} = "t" ]; then
-	echo $(sudo nmap -sT -sV -O -A --script=${scriptname} -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")
+	sudo nmap -sT -sV -O -A --script=${scriptname} -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt
 elif [ ${type} = "U" ] || [ ${type} = "u" ]; then
-	echo $(sudo nmap -sU -sV -O -A --script=${scriptname} -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")
+	sudo nmap -sU -sV -O -A --script=${scriptname} -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt
 elif [ ${type} = "F" ] || [ ${type} = "f" ]; then
-	echo $(sudo nmap -sF -sV -O -A --script=${scriptname} -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")
+	sudo nmap -sF -sV -O -A --script=${scriptname} -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt
 elif [ ${type} = "X" ] || [ ${type} = "x" ]; then
-	echo $(sudo nmap -sX -sV -O -A --script=${scriptname} -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")
+	sudo nmap -sX -sV -O -A --script=${scriptname} -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt
 elif [ ${type} = "N" ] || [ ${type} = "n" ]; then
-	echo $(sudo nmap -sN -sV -O -A --script=${scriptname} -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")		
+	sudo nmap -sN -sV -O -A --script=${scriptname} -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt	
 elif [ ${type} = "W" ] || [ ${type} = "w" ]; then
-	echo $(sudo nmap -sW -sV -O -A --script=${scriptname} -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")
+	sudo nmap -sW -sV -O -A --script=${scriptname} -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt
 elif [ ${type} = "M" ] || [ ${type} = "m" ]; then
-	echo $(sudo nmap -sM -sV -O -A --script=${scriptname} -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")
+	sudo nmap -sM -sV -O -A --script=${scriptname} -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt
 fi
 }
 
@@ -113,19 +113,19 @@ read -p "Enter Network Interface name : " ifname
 
 if [ ${spoof} = "yes" ] || [ ${spoof} = "YES" ]; then
 	if [ ${type} = "T" ] || [ ${type} = "t" ]; then
-		echo $(sudo nmap -sT -sV -O -A -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")
+		sudo nmap -sT -sV -O -A -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt
 	elif [ ${type} = "U" ] || [ ${type} = "u" ]; then
-		echo $(sudo nmap -sU -sV -O -A -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")
+		sudo nmap -sU -sV -O -A -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt
 	elif [ ${type} = "F" ] || [ ${type} = "f" ]; then
-		echo $(sudo nmap -sF -sV -O -A -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")
+		sudo nmap -sF -sV -O -A -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt
 	elif [ ${type} = "X" ] || [ ${type} = "x" ]; then
-		echo $(sudo nmap -sX -sV -O -A -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")
+		sudo nmap -sX -sV -O -A -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt
 	elif [ ${type} = "N" ] || [ ${type} = "n" ]; then
-		echo $(sudo nmap -sN -sV -O -A -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")
+		nmap -sN -sV -O -A -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt
 	elif [ ${type} = "W" ] || [ ${type} = "w" ]; then
-		echo $(sudo nmap -sW -sV -O -A -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")	
+		sudo nmap -sW -sV -O -A -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt
 	elif [ ${type} = "M" ] || [ ${type} = "m" ]; then
-		echo $(sudo nmap -sM -sV -O -A -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt")
+		sudo nmap -sM -sV -O -A -e ${ifname} -S ${ipspoof} -Pn -v ${ipaddr} > "SCANNMAP ${ipaddr} $(date).txt
 	fi
 fi
 }
